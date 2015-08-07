@@ -1,11 +1,17 @@
 Feature: Do Some things
-  In order to do something
+  In order edit yaml files efectively
   As a user
-  I want to do something
+  I want to know the yaml path my cursor is currently under
 
-  Scenario: Do Something
-    Given I have "something"
-    When I have "something"
-    Then I should have "something"
-    And I should have "something"
-    But I should not have "something"
+  Scenario: Displaying Path
+    Given I insert:
+    """
+    en:
+      one: One
+      two:
+        three: Three
+        four: Four
+    """
+    When I press "C-x y"
+    And switch to buffer "*Messages*"
+    Then I should see "en.two.four"
