@@ -10,9 +10,7 @@
 (defun get-yaml-key (string)
   (car (s-slice-at ":" (s-trim string))))
 
-(defun show-current-path ()
-  "show current yaml path in message buffer"
-  (interactive)
+(defun yaml-current-path ()
   (let* ((path '())
          (get-key (lambda () (get-yaml-key (s-trim (thing-at-point 'line t)))))
          (search-previous (lambda (spaces) (re-search-backward (s-concat "^" (s-repeat spaces " ") "[a-zA-Z\(]"))))
@@ -23,6 +21,11 @@
                (spaces (- (count-white-spaces current-line) spaces-per-tab)))
           (funcall search-previous spaces)
           (add-to-list 'path (funcall get-key)))))
-    (message (s-concat (s-join "." path) "." last-key))))
+    (s-concat (s-join "." path) "." last-key)))
+
+(defun show-current-path ()
+  "show current yaml path in message buffer"
+  (intercative)
+  (message (yaml-current-path)))
 
 (provide 'yaml-tomato)
