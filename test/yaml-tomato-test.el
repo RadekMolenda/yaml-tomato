@@ -1,7 +1,10 @@
-(require 'yaml-tomato)
-
 (ert-deftest count-white-spaces/test ()
   (should (eq (count-white-spaces "a") 0))
   (should (eq (count-white-spaces " a") 1))
   (should (eq (count-white-spaces " a ") 1))
   (should (eq (count-white-spaces "  a") 2)))
+
+(ert-deftest get-yaml-key/test ()
+  (should (s-equals? (get-yaml-key "  abc:") "abc"))
+  (should (s-equals? (get-yaml-key "hello_world:") "hello_world"))
+  (should (s-equals? (get-yaml-key "  hello1: abc") "hello1")))
