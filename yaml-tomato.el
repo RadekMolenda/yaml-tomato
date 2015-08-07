@@ -25,7 +25,12 @@
 
 (defun show-current-path ()
   "show current yaml path in message buffer"
-  (intercative)
+  (interactive)
   (message (yaml-current-path)))
+
+(defun yaml-tomato/copy ()
+  "copy current path to kill-ring"
+  (interactive)
+  (kill-new (yaml-current-path)))
 
 (provide 'yaml-tomato)
