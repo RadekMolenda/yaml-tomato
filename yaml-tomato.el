@@ -1,14 +1,14 @@
 (require 'cl)
 (require 's)
 
+(defvar spaces-per-tab 2)
+
 (defun count-white-spaces (string)
   (s-count-matches " " (car (s-slice-at "[:alnum]"
                                         string))))
 
 (defun get-yaml-key (string)
   (car (s-slice-at ":" (s-trim string))))
-
-(defvar spaces-per-tab 2)
 
 (defun show-current-path ()
   "show current yaml path in message buffer"
@@ -24,7 +24,5 @@
           (funcall search-previous spaces)
           (add-to-list 'path (funcall get-key)))))
     (message (s-concat (s-join "." path) "." last-key))))
-
-(global-set-key (kbd "C-x y") 'show-current-path)
 
 (provide 'yaml-tomato)

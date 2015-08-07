@@ -12,8 +12,8 @@ Feature: Do Some things
         three: Three
         four: Four
     """
-    When I press "C-x y"
+    When I call "show-current-path"
     Then I should see message "en.two.four"
     When I go to line "4"
-    And I press "C-x y"
+    And I call "show-current-path"
     Then I should see message "en.two.three"
