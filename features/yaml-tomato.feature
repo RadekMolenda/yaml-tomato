@@ -13,5 +13,7 @@ Feature: Do Some things
         four: Four
     """
     When I press "C-x y"
-    And I switch to buffer "*Messages*"
-    Then I should see "en.two.four"
+    Then I should see message "en.two.four"
+    When I go to line "4"
+    And I press "C-x y"
+    Then I should see message "en.two.three"
