@@ -5,7 +5,8 @@
 (depends-on "dash")
 (depends-on "f")
 (depends-on "s")
-(depends-on "espuds")
 
 (development
-  (depends-on "ecukes"))
+  (depends-on "ecukes")
+  (depends-on "espuds")
+  (depends-on "ert-runner"))
