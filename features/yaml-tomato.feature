@@ -12,10 +12,10 @@ Feature: Yaml path under cursor
         three: Three
       four: Four
     """
-    When I call "show-current-path"
+    When I call "yaml-tomato/show-current-path"
     Then I should see message "en.four"
     When I go to line "4"
-    And I call "show-current-path"
+    And I call "yaml-tomato/show-current-path"
     Then I should see message "en.two.three"
 
   Scenario: Copying a Path
