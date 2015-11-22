@@ -20,11 +20,6 @@
 
 (defvar spaces-per-tab 1)
 
-(defun count-white-spaces (string)
-  "Count how many white spaces there are at the beginning of the STRING."
-  (s-count-matches " " (car (s-slice-at "[:alnum]"
-                                        string))))
-
 (defun get-yaml-key (string)
   "Get the yaml tag from STRING."
   (car (s-slice-at ":" (s-trim string))))
@@ -34,7 +29,7 @@
   (let* ((path '())
          (get-key (lambda () (get-yaml-key (s-trim (thing-at-point 'line t)))))
          (search-previous (lambda (spaces) (re-search-backward (s-concat "^" (s-repeat spaces " ") "[a-zA-Z\(]") nil t nil)))
-         (white-spaces (count-white-spaces (thing-at-point 'line t))))
+         (white-spaces (current-indentation)))
     (save-excursion
       (while (not (bobp))
         (let* ((current-line (thing-at-point 'line t)))
