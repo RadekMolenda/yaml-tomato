@@ -17,16 +17,16 @@
 
 (require 's)
 
-(defvar spaces-per-tab 1)
+(defvar yaml-tomato--spaces-per-tab 1)
 
-(defun get-yaml-key (string)
+(defun yaml-tomato--get-yaml-key (string)
   "Get the yaml tag from STRING."
   (car (s-slice-at ":" (s-trim string))))
 
-(defun yaml-current-path ()
+(defun yaml-tomato--current-path ()
   "Get the tags path under cursor."
   (let* ((path '())
-         (get-key (lambda () (get-yaml-key (s-trim (thing-at-point 'line t)))))
+         (get-key (lambda () (yaml-tomato--get-yaml-key (s-trim (thing-at-point 'line t)))))
          (search-previous (lambda (spaces) (re-search-backward (s-concat "^" (s-repeat spaces " ") "[a-zA-Z\(]") nil t nil)))
          (white-spaces (current-indentation)))
     (save-excursion
@@ -35,20 +35,20 @@
           (end-of-line)
           (when (funcall search-previous white-spaces)
               (add-to-list 'path (funcall get-key)))
-            (setq white-spaces (- white-spaces spaces-per-tab)))))
+            (setq white-spaces (- white-spaces yaml-tomato--spaces-per-tab)))))
     path))
 
 ;;;###autoload
 (defun yaml-tomato/show-current-path ()
   "Show current yaml path in message buffer."
   (interactive)
-  (message (s-join "." (yaml-current-path))))
+  (message (s-join "." (yaml-tomato--current-path))))
 
 ;;;###autoload
 (defun yaml-tomato/copy ()
   "Copy current path to 'kill-ring'."
   (interactive)
-  (kill-new (s-join "." (yaml-current-path))))
+  (kill-new (s-join "." (yaml-tomato--current-path))))
 
 (provide 'yaml-tomato)
 ;;; yaml-tomato.el ends here
