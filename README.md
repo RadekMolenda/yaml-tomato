@@ -8,7 +8,11 @@ My initial thought was to name it `yaml-automation` but `yaml-tomato` reads and 
 
 ### Installation
 
-I would like to put it on Melpa soon. For now you need to dump `yaml-tomato.el` into your load path somewhere. `init.el` might be a good starting point.
+Put `yaml-tomato.el' in your Emacs load-path and add the line below to your .emacs file:
+
+```
+(require 'yaml-tomato)
+```
 
 ## Functions
 

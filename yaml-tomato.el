@@ -1,4 +1,4 @@
-;;; yaml-tomato.el --- Some useful functions for editing yaml files
+;;; yaml-tomato.el --- copy or show the yaml path currently under cursor.
 
 ;; Author: qrczeno
 ;; Created: 22-Nov-2015
