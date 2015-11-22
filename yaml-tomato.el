@@ -15,7 +15,6 @@
 
 ;;; Code:
 
-;;;###autoload
 (require 's)
 
 (defvar spaces-per-tab 1)
@@ -39,11 +38,13 @@
             (setq white-spaces (- white-spaces spaces-per-tab)))))
     path))
 
+;;;###autoload
 (defun yaml-tomato/show-current-path ()
   "Show current yaml path in message buffer."
   (interactive)
   (message (s-join "." (yaml-current-path))))
 
+;;;###autoload
 (defun yaml-tomato/copy ()
   "Copy current path to 'kill-ring'."
   (interactive)
