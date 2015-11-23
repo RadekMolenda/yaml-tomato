@@ -12,10 +12,10 @@ Feature: Yaml path under cursor
         three: Three
       four: Four
     """
-    When I call "yaml-tomato/show-current-path"
+    When I call "yaml-tomato-show-current-path"
     Then I should see message "en.four"
     When I go to line "4"
-    And I call "yaml-tomato/show-current-path"
+    And I call "yaml-tomato-show-current-path"
     Then I should see message "en.two.three"
 
   Scenario: Copying a Path
@@ -28,8 +28,8 @@ Feature: Yaml path under cursor
         quckx: Three
       quack: Four
     """
-    When I call "yaml-tomato/copy"
+    When I call "yaml-tomato-copy"
     Then I should copied "foo.quack"
     When I go to line "2"
-    And I call "yaml-tomato/copy"
+    And I call "yaml-tomato-copy"
     Then I should copied "foo.bar"
