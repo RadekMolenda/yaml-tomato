@@ -24,6 +24,22 @@ Put `yaml-tomato.el' in your Emacs load-path and add the line below to your .ema
 
 `yaml-tomato-copy` copies the current yaml path under cursor to kill-ring and clipboard
 
+## Testing
+You will need to have [cask](https://github.com/cask/cask) installed to run tests. Once it is installed:
+
+```
+git clone git@github.com:RadekMolenda/yaml-tomato.git
+cd yaml-tomato
+
+# install dependencies
+cask
+
+# run unit tests
+cask exec ert-runner
+
+# run integration tests
+cask exec ecukes
+```
 ### Pitfals
 
 The multiline values in yaml file might sometimes cause some problems to `yaml-tomato` especialy when there are plenty of whitespaces in the beginning of the line. "Normal" multiline values shouldn't cause problems.
