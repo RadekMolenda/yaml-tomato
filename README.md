@@ -1,6 +1,6 @@
 # yaml-tomato.el
 
-[![MELPA](http://melpa.org/packages/yaml-tomato-badge.svg)](http://melpa.org/#/yaml-tomato)
+[![MELPA](http://melpa.org/packages/yaml-tomato-badge.svg)](http://melpa.org/#/yaml-tomato) [![Build Status](https://travis-ci.org/RadekMolenda/yaml-tomato.svg)](https://travis-ci.org/RadekMolenda/yaml-tomato)
 
 The simple tool to copy or show the yaml path currently under cursor
 
