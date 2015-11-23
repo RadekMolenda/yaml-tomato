@@ -10,8 +10,8 @@
 
 ;; Usage:
 ;; **yaml-tomato** provides two functions you could use while working with yaml file:
-;;   - 'yaml-tomato/show-current-path' displays current yaml path under cursor in message box
-;;   - 'yaml-tomato/copy' copies the current yaml path under cursor to kill-ring and clipboard
+;;   - 'yaml-tomato-show-current-path' displays current yaml path under cursor in message box
+;;   - 'yaml-tomato-copy' copies the current yaml path under cursor to kill-ring and clipboard
 
 ;;; Code:
 
@@ -39,13 +39,13 @@
     path))
 
 ;;;###autoload
-(defun yaml-tomato/show-current-path ()
+(defun yaml-tomato-show-current-path ()
   "Show current yaml path in message buffer."
   (interactive)
   (message (s-join "." (yaml-tomato--current-path))))
 
 ;;;###autoload
-(defun yaml-tomato/copy ()
+(defun yaml-tomato-copy ()
   "Copy current path to 'kill-ring'."
   (interactive)
   (kill-new (s-join "." (yaml-tomato--current-path))))
